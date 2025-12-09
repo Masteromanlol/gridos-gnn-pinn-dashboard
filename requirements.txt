@@ -1,0 +1,26 @@
+# GridOS GNN-PINN Dashboard - Python Dependencies
+# Install with: pip install -r requirements.txt
+
+# Web Framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-multipart==0.0.6
+
+# Data Processing
+numpy==1.24.3
+pandas==2.0.3
+
+# Scientific Computing (for simulation)
+scipy==1.11.3
+
+# Optional: For actual GNN-PINN implementation
+# Uncomment these if implementing real ML models:
+# torch==2.1.0
+# torch-geometric==2.4.0
+# pytorch-lightning==2.1.0
+
+# API Documentation
+pydantic==2.4.2
+
+# CORS and Security
+python-jose[cryptography]==3.3.0
