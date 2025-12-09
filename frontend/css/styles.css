@@ -1,0 +1,347 @@
+/* ===== VARIABLES & RESET ===== */
+:root {
+    --bg-primary: rgb(31, 33, 33);
+    --bg-sidebar: rgba(31, 33, 33, 0.95);
+    --accent-teal: rgb(32, 128, 128);
+    --text-light: rgb(167, 169, 169);
+    --text-dark: #94a3b8;
+    --success: rgb(34, 197, 94);
+    --error: rgb(255, 84, 89);
+    --warning: rgb(255, 159, 67);
+    --info: rgb(32, 128, 128);
+    --border-color: rgba(167, 169, 169, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-light);
+    overflow-x: hidden;
+}
+
+/* ===== HEADER ===== */
+header {
+    background: linear-gradient(135deg, var(--accent-teal), rgba(32, 128, 128, 0.8));
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+header p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* ===== CONTAINER ===== */
+.container {
+    display: flex;
+    height: calc(100vh - 160px);
+}
+
+/* ===== SIDEBAR ===== */
+aside {
+    width: 320px;
+    background: var(--bg-sidebar);
+    padding: 1.5rem;
+    overflow-y: auto;
+    border-right: 1px solid var(--border-color);
+}
+
+.sidebar-section {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-section:last-child {
+    border-bottom: none;
+}
+
+.sidebar-section h3 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+    color: var(--accent-teal);
+}
+
+.sidebar-section label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ===== FILE UPLOAD ===== */
+.file-upload {
+    margin-bottom: 1rem;
+}
+
+.file-upload input[type="file"] {
+    display: none;
+}
+
+.file-upload label {
+    display: block;
+    padding: 1rem;
+    background: rgba(32, 128, 128, 0.1);
+    border: 2px dashed var(--accent-teal);
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.file-upload label:hover {
+    background: rgba(32, 128, 128, 0.2);
+    border-color: rgba(32, 128, 128, 0.8);
+}
+
+.file-upload small {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--text-dark);
+}
+
+/* ===== STATUS INDICATOR ===== */
+.status-indicator {
+    padding: 0.75rem;
+    background: rgba(34, 197, 94, 0.1);
+    border-left: 3px solid var(--success);
+    border-radius: 4px;
+    font-size: 0.875rem;
+    color: var(--success);
+}
+
+/* ===== SELECT & INPUTS ===== */
+select {
+    width: 100%;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-light);
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+select:focus {
+    outline: none;
+    border-color: var(--accent-teal);
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: var(--accent-teal);
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 0.75rem;
+}
+
+.btn:hover {
+    background: rgba(32, 128, 128, 0.8);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(32, 128, 128, 0.3);
+}
+
+.btn-secondary {
+    background: rgba(32, 128, 128, 0.2);
+    border: 1px solid var(--accent-teal);
+}
+
+.btn-secondary:hover {
+    background: rgba(32, 128, 128, 0.3);
+}
+
+/* ===== INFO GRID ===== */
+.info-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.info-grid span:nth-child(odd) {
+    color: var(--text-dark);
+}
+
+.info-grid span:nth-child(even) {
+    color: var(--text-light);
+    font-weight: 600;
+    text-align: right;
+}
+
+/* ===== MAIN CONTENT ===== */
+main {
+    flex: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+}
+
+/* ===== TABS ===== */
+.tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tab-button {
+    padding: 0.75rem 1.5rem;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--text-dark);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-button:hover {
+    color: var(--text-light);
+    border-bottom-color: rgba(32, 128, 128, 0.3);
+}
+
+.tab-button.active {
+    color: var(--accent-teal);
+    border-bottom-color: var(--accent-teal);
+}
+
+/* ===== TAB CONTENT ===== */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* ===== ALERTS ===== */
+#alerts {
+    margin-bottom: 1.5rem;
+}
+
+.alert {
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    border-left: 4px solid;
+}
+
+.alert-success {
+    background: rgba(34, 197, 94, 0.1);
+    border-left-color: var(--success);
+    color: var(--success);
+}
+
+.alert-error {
+    background: rgba(255, 84, 89, 0.1);
+    border-left-color: var(--error);
+    color: var(--error);
+}
+
+.alert-warning {
+    background: rgba(255, 159, 67, 0.1);
+    border-left-color: var(--warning);
+    color: var(--warning);
+}
+
+.alert-info {
+    background: rgba(32, 128, 128, 0.1);
+    border-left-color: var(--info);
+    color: var(--info);
+}
+
+/* ===== HEADINGS ===== */
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-light);
+}
+
+/* ===== GRAPH ===== */
+#networkGraph {
+    height: 400px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+/* ===== TABLE ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+thead {
+    background: rgba(32, 128, 128, 0.2);
+}
+
+th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--accent-teal);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+td {
+    padding: 1rem;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.875rem;
+}
+
+tbody tr:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+/* ===== STATUS BAR ===== */
+.status-bar {
+    padding: 1rem 2rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-around;
+    font-size: 0.875rem;
+}
+
+.status-bar span {
+    color: var(--text-dark);
+}
+
+.status-bar span span {
+    color: var(--accent-teal);
+    font-weight: 600;
+    margin-left: 0.5rem;
+}
