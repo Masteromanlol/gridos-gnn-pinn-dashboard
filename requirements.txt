@@ -1,26 +1,62 @@
 # GridOS GNN-PINN Dashboard - Python Dependencies
 # Install with: pip install -r requirements.txt
+# Last updated: December 2025 with latest compatible versions
 
+# =============================================================================
 # Web Framework
-fastapi==0.104.1
-uvicorn[standard]==0.24.0
-python-multipart==0.0.6
+# =============================================================================
+# FastAPI 0.115+ with standard extras (includes uvicorn, pydantic, etc.)
+fastapi==0.115.5  # Latest stable as of Dec 2025, Python 3.8+
+uvicorn[standard]==0.32.1  # ASGI server, supports Python 3.8-3.13
+python-multipart==0.0.18  # For file upload support, fixes security issues
 
+# =============================================================================
 # Data Processing
-numpy==1.24.3
-pandas==2.0.3
+# =============================================================================
+# NumPy 2.x has breaking changes - using 1.26.4 for broad compatibility
+numpy>=1.26.0,<2.0.0  # Stable with pandas, Python 3.9-3.12
+pandas>=2.2.2  # First pandas version compatible with numpy 2.x (future-proof)
 
+# =============================================================================
 # Scientific Computing (for simulation)
-scipy==1.11.3
+# =============================================================================
+scipy==1.14.1  # Latest stable, Python 3.10-3.13 support
 
+# =============================================================================
+# API & Data Validation
+# =============================================================================
+pydantic>=2.10.0  # v2 is much faster, supports Python 3.8-3.13
+
+# =============================================================================
+# Authentication & Security
+# =============================================================================
+# IMPORTANT: python-jose is deprecated and unmaintained
+# Using PyJWT instead (actively maintained, recommended by FastAPI community)
+PyJWT[crypto]==2.10.1  # JWT encoding/decoding with cryptographic support
+passlib[bcrypt]==1.7.4  # Password hashing
+python-jose[cryptography]==3.3.0  # DEPRECATED - kept for backward compatibility only
+# TODO: Migrate from python-jose to PyJWT in production code
+
+# =============================================================================
+# HTTP Client (for testing/development)
+# =============================================================================
+httpx>=0.27.0  # Async HTTP client, useful for testing
+
+# =============================================================================
 # Optional: For actual GNN-PINN implementation
-# Uncomment these if implementing real ML models:
-# torch==2.1.0
-# torch-geometric==2.4.0
-# pytorch-lightning==2.1.0
+# Uncomment these if implementing real ML models
+# =============================================================================
+# PyTorch 2.7.0 is latest (April 2025), requires Python 3.10+
+# torch==2.7.0  # Latest stable, CUDA 11.8+ or CPU
+# torchvision==0.22.0  # Matches PyTorch 2.7.0
+# torch-geometric==2.6.1  # Graph neural network library
+# torch-scatter==2.1.2  # Required by torch-geometric
+# torch-sparse==0.6.18  # Required by torch-geometric
 
-# API Documentation
-pydantic==2.4.2
-
-# CORS and Security
-python-jose[cryptography]==3.3.0
+# =============================================================================
+# Development Tools (Optional)
+# =============================================================================
+# pytest==8.3.4  # Testing framework
+# black==24.10.0  # Code formatter
+# ruff==0.8.4  # Fast linter
+# mypy==1.13.0  # Type checking
