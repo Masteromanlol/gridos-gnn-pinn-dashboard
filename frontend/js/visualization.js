@@ -64,6 +64,22 @@ const Visualization = {
         };
 
         Plotly.newPlot(networkGraph, data, layout, { responsive: true, displayModeBar: false });
+
+                // Add click event for contingency analysis
+                networkGraph.on('plotly_click', function(data) {
+                                const pointIndex = data.points[0].pointIndex;
+                                const clickedBus = gridData.buses[pointIndex];
+
+                                if (clickedBus) {
+                                                    // Show alert with bus info
+                                                    Visualization.showAlert(`Analyzing Bus ${clickedBus.id || pointIndex} contingency...`, 'info');
+
+                                                    // Trigger contingency analysis for this bus
+                                                    if (window.App && window.App.analyzeBusContingency) {
+                                                                            window.App.analyzeBusContingency(clickedBus.id || pointIndex);
+                                                                        }
+                                                }
+                            });
     },
 
     getNodeColor: function(bus, results) {
