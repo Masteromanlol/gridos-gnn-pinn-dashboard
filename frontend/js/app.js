@@ -329,10 +329,38 @@ function updateSystemInfo() {
     document.getElementById('lineCount').textContent = '16,049';
 }
 
+async function analyzeBusContingency(busId) {
+            if (!AppState.gridData) {
+                            Visualization.showAlert('Please upload grid state data first', 'warning');
+                            return;
+                        }
+
+            try {
+                            Visualization.showAlert(`Analyzing Bus ${busId} contingency...`, 'info');
+                            const startTime = performance.now();
+
+                            // Create a simulated contingency for the bus
+                            const contingencyId = `BUS_${busId}_OUTAGE`;
+                            const results = await API.analyzeSingle(AppState.gridData, contingencyId);
+                            const duration = ((performance.now() - startTime) / 1000).toFixed(3);
+
+                            AppState.currentResults = results;
+
+                            // Update visualization
+                            Visualization.renderNetworkGraph(AppState.gridData, results);
+                            Visualization.updateRiskTable({ contingencies: [results] });
+
+                            Visualization.showAlert(`Bus ${busId} analysis complete in ${duration}s`, 'success');
+                        } catch (error) {
+                            Visualization.showAlert(`Analysis failed: ${error.message}`, 'error');
+                        }
+        }
+
 // Export for debugging
 window.App = {
     state: AppState,
     loadContingencies,
     analyzeSingleContingency,
     runBulkScreening
+            analyzeBusContingency
 };
