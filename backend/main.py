@@ -210,6 +210,50 @@ async def get_statistics():
         "benchmark": "PEGASE 9241 (9,241 buses, 16,049 lines)"
     }
 
+    # AI Assistant endpoints
+@app.post("/api/assistant/query")
+async def query_assistant(request: Dict[str, Any]):
+    """Query the rnj-1 AI assistant with natural language"""
+    try:
+        from ai_assistant import get_assistant
+        assistant = get_assistant()
+        
+        question = request.get("question", "")
+        context = request.get("context")
+        
+        if not question:
+            raise HTTPException(status_code=400, details="Question is required")
+        
+        response = assistant.query(question, grid_context=context)
+        return response
+    except Exception as e:
+        raise HTTPException(status_code=500, details=str(e))
+
+@app.post("/api/assistant/explain")
+async def explain_contingency(result: ContingencyResult):
+    """Get natural language explanation of contingency result"""
+    try:
+        from ai_assistant import get_assistant
+        assistant = get_assistant()
+        explanation = assistant.explain_result(result.dict())
+        return {"explanation": explanation}
+    except Exception as e:
+        raise HTTPException(status_code=500, details=str(e))
+
+@app.get("/api/assistant/status")
+async def check_assistant_status():
+    """Check if Ollama and rnj-1 are available"""
+    try:
+        from ai_assistant import get_assistant
+        assistant = get_assistant()
+        status = assistant.check_ollama_status()
+        return status
+    except Exception as e:
+        return {
+            "available": False,
+            "message": f"Error checking Ollama status: {str(e)}"
+        }
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
