@@ -11,8 +11,7 @@
     <!-- Header -->
     <header>
         <h1>⚡ GridOS GNN-PINN Dashboard</h1>
-        <p>PEGASE 9241 Scale Analysis • 100,000 N-1s in 40s</p>
-    </header>
+            <p><span id="systemName">PEGASE 9241</span> Scale Analysis • 100,000 N-1s in 40s</p>    </header>
 
     <div class="container">
         <!-- Sidebar -->
@@ -20,6 +19,15 @@
             <!-- Grid State Section -->
             <div class="sidebar-section">
                 <h3>GRID STATE</h3>
+                                <!-- System Selector -->
+                                <label>POWER SYSTEM</label>
+                                <select id="systemSelect" class="system-selector">
+                                                        <option value="pegase">PEGASE 9241</option>
+                                                        <option value="ieee118">IEEE 118-Bus</option>
+                                                        <option value="ieee300">IEEE 300-Bus</option>
+                                                    </select>
+                                <small>Select power system benchmark</small>
+                
                 <div class="file-upload">
                     <input type="file" id="fileUpload" accept=".csv,.json">
                     <label for="fileUpload">
