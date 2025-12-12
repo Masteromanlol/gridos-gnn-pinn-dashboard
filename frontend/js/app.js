@@ -2,6 +2,7 @@
 
 // Application state
 const AppState = {
+        currentSystem: 'pegase',
     gridData: null,
     contingencies: [],
     currentResults: null,
@@ -57,6 +58,9 @@ function setupEventListeners() {
     document.getElementById('analyzeSingle').addEventListener('click', analyzeSingleContingency);
     document.getElementById('analyzeScreening').addEventListener('click', runBulkScreening);
     document.getElementById('exportResults').addEventListener('click', exportResults);
+
+        // System selector
+        document.getElementById('systemSelect').addEventListener('change', handleSystemChange);
     
     // Tab switching
     document.querySelectorAll('.tab-button').forEach(button => {
@@ -272,6 +276,39 @@ function switchTab(tabName) {
         content.classList.toggle('active', content.id === tabName);
     });
 }
+
+function handleSystemChange(event) {
+        const system = event.target.value;
+        AppState.currentSystem = system;
+
+        // Update UI
+        const systemNames = {
+                    'pegase': 'PEGASE 9241',
+                    'ieee118': 'IEEE 118-Bus',
+                    'ieee300': 'IEEE 300-Bus'
+                            };
+
+        const systemCounts = {
+                    'pegase': { buses: 9241, lines: 16049 },
+                    'ieee118': { buses: 118, lines: 186 },
+                    'ieee300': { buses: 300, lines: 411 }
+                            };
+
+        // Update header
+        document.getElementById('systemName').textContent = systemNames[system];
+
+        // Update system counts
+        const counts = systemCounts[system];
+        document.getElementById('busCount').textContent = counts.buses.toLocaleString();
+        document.getElementById('lineCount').textContent = counts.lines.toLocaleString();
+
+        // Clear current data
+        AppState.gridData = null;
+        AppState.currentResults = null;
+        Visualization.clear();
+
+        Visualization.showAlert(`Switched to ${systemNames[system]}. Please upload grid state data.`, 'info');
+    }
 
 async function checkAPIConnection() {
     try {
