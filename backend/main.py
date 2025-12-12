@@ -222,12 +222,12 @@ async def query_assistant(request: Dict[str, Any]):
         context = request.get("context")
         
         if not question:
-            raise HTTPException(status_code=400, details="Question is required")
+            raise HTTPException(status_code=400, detail="Question is required")
         
         response = assistant.query(question, grid_context=context)
         return response
     except Exception as e:
-        raise HTTPException(status_code=500, details=str(e))
+        raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/api/assistant/explain")
 async def explain_contingency(result: ContingencyResult):
@@ -238,7 +238,7 @@ async def explain_contingency(result: ContingencyResult):
         explanation = assistant.explain_result(result.dict())
         return {"explanation": explanation}
     except Exception as e:
-        raise HTTPException(status_code=500, details=str(e))
+        raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/api/assistant/status")
 async def check_assistant_status():
