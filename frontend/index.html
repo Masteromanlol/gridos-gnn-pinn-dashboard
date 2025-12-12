@@ -22,11 +22,27 @@
                                 <!-- System Selector -->
                                 <label>POWER SYSTEM</label>
                                 <select id="systemSelect" class="system-selector">
-                                                        <option value="pegase">PEGASE 9241</option>
-                                                        <option value="ieee118">IEEE 118-Bus</option>
-                                                        <option value="ieee300">IEEE 300-Bus</option>
-                                                    </select>
-                                <small>Select power system benchmark</small>
+                    <!-- IEEE Test Systems -->
+                    <option value="ieee14">IEEE 14-Bus</option>
+                    <option value="ieee30">IEEE 30-Bus</option>
+                    <option value="ieee57">IEEE 57-Bus</option>
+                    <option value="ieee118">IEEE 118-Bus</option>
+                    <option value="ieee300">IEEE 300-Bus</option>
+                    <!-- PEGASE European Systems -->
+                    <option value="pegase89">PEGASE 89-Bus</option>
+                    <option value="pegase1354">PEGASE 1354-Bus</option>
+                    <option value="pegase2869">PEGASE 2869-Bus</option>
+                    <option value="pegase9241" selected>PEGASE 9241-Bus</option>
+                    <option value="pegase13659">PEGASE 13659-Bus</option>
+                    <!-- RTE/RTS Systems -->
+                    <option value="rts96">RTS-96 (73-Bus)</option>
+                    <option value="rtsgmlc">RTS-GMLC (73-Bus)</option>
+                    <!-- Polish Systems -->
+                    <option value="polish2383">Polish 2383-Bus Winter</option>
+                    <option value="polish2736">Polish 2736-Bus Summer</option>
+                    <option value="polish3012">Polish 3012-Bus Autumn</option>
+                    <!-- Custom -->
+                    <option value="custom">Custom System</option>                                <small>Select power system benchmark</small>
                 
                 <div class="file-upload">
                     <input type="file" id="fileUpload" accept=".csv,.json">
@@ -48,9 +64,8 @@
                 </select>
                 <button class="btn" id="analyzeSingle">🔍 Analyze Single</button>
                 <button class="btn btn-secondary" id="analyzeScreening">
-                    📊 Run 100k N-1 Screening<br>
-                    <small>GNN-PINN Accelerated</small>
-                </button>
+                                        📊 <span id="screeningButtonText">Run Full N-1 Screening</span><br>
+                    <small><span id="screeningSubtext">GNN-PINN Accelerated</span></small>
             </div>
 
             <!-- Export Section -->
