@@ -31,13 +31,6 @@ function clearAlerts() {
     alertsDiv.innerHTML = '';
 }
 
-// Update status bar
-function updateStatus(gridState, contingencies, inference, api) {
-    if (gridState) document.getElementById('statusGridState').textContent = gridState;
-    if (contingencies) document.getElementById('statusContingencies').textContent = formatNumber(contingencies);
-    if (inference) document.getElementById('statusInference').textContent = formatDuration(inference);
-    if (api) document.getElementById('statusAPI').textContent = api;
-}
 
 // Tab switching functionality
 function initTabs() {
