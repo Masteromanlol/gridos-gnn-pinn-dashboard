@@ -361,6 +361,6 @@ window.App = {
     state: AppState,
     loadContingencies,
     analyzeSingleContingency,
-    runBulkScreening
+    runBulkScreening,
             analyzeBusContingency
 };
