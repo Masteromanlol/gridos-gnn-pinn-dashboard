@@ -143,3 +143,23 @@ function simulateScreening() {
         }, 2000);
     });
 }
+
+// Check API connection
+async function checkAPIConnection() {
+    try {
+        const response = await fetch(`${API_BASE_URL}/health`);
+        if (!response.ok) throw new Error('API not responding');
+        const status = await response.json();
+        return { connected: true, ...status };
+    } catch (error) {
+        return { connected: false };
+    }
+}
+
+// Export API module
+window.API = {
+    uploadGridState,
+    analyzeSingle: analyzeSingleContingency,
+    runScreening,
+    checkConnection: checkAPIConnection
+};
