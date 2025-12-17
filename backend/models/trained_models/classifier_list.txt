@@ -1,0 +1,13 @@
+classifier_model_classifier_lr_1e-4_lambda_0.0.pt
+classifier_model_classifier_lr_1e-4_lambda_1e-5.pt
+classifier_model_classifier_lr_1e-4_lambda_1e-6.pt
+classifier_model_classifier_lr_1e-4_lambda_1e-7.pt
+classifier_model_classifier_lr_1e-4_lambda_1e-8.pt
+classifier_model_classifier_lr_1e-4_lambda_1e-9.pt
+classifier_model_classifier_lr_1e-5_lambda_0.0.pt
+classifier_model_classifier_lr_1e-5_lambda_1e-5.pt
+classifier_model_classifier_lr_1e-5_lambda_1e-6.pt
+classifier_model_classifier_lr_1e-5_lambda_1e-7.pt
+classifier_model_classifier_lr_1e-5_lambda_1e-8.pt
+classifier_model_classifier_lr_1e-5_lambda_1e-9.pt
+classifier_model.pt

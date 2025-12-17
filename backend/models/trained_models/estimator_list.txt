@@ -1,0 +1,14 @@
+estimator_model_estimator_lr_1e-4_lambda_0.0.pt
+estimator_model_lr_1e-4_lambda_0.0.pt
+estimator_model_lr_1e-4_lambda_1e-5.pt
+estimator_model_lr_1e-4_lambda_1e-6.pt
+estimator_model_lr_1e-4_lambda_1e-7.pt
+estimator_model_lr_1e-4_lambda_1e-8.pt
+estimator_model_lr_1e-4_lambda_1e-9.pt
+estimator_model_lr_1e-5_lambda_0.0.pt
+estimator_model_lr_1e-5_lambda_1e-5.pt
+estimator_model_lr_1e-5_lambda_1e-6.pt
+estimator_model_lr_1e-5_lambda_1e-7.pt
+estimator_model_lr_1e-5_lambda_1e-8.pt
+estimator_model_lr_1e-5_lambda_1e-9.pt
+estimator_model.pt

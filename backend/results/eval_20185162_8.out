@@ -1,0 +1,3 @@
+Classifier: classifier_model_classifier_lr_1e-4_lambda_0.0.pt
+Estimator: estimator_model_lr_1e-5_lambda_1e-8.pt
+Results File: results/eval_classifier_model_classifier_lr_1e-4_lambda_0.0.pt_estimator_model_lr_1e-5_lambda_1e-8.pt.csv
